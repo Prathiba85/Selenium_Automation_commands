@@ -13,7 +13,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class firsttestcase {
 	
-	@BeforeMethod
+	@BeforeMethod(alwaysRun=true)
 	public void startbrowser()
 	{
 
@@ -24,16 +24,24 @@ public class firsttestcase {
 	//BM-->T1-->AM
 	//BM-->T2-->AM
 	//BM-->T3--AM
-	@Test
+	@Test(groups= {"low","Smoke"})
+	public void Tc001()
+	{
+	System.out.println("Textcase1 low priority smoke");
+	}
+	
+	
+	@Test (priority=1)
 	public void Tc002()
 	{
 		EdgeDriver cr = new EdgeDriver();
 		cr.get("http://www.google.com");
 		cr.close();
+		System.out.println("Test case 2");
 		
 	
 	}
-	
+	//skip testcase
 	@Test //Annotation
 	public void TC001 ()
 	{
@@ -45,12 +53,13 @@ public class firsttestcase {
 		//c.wait(10000);
 		c.get("http://www.google.com");
 		c.close();
+		System.out.println("Test case 1");
 		
 	
 	}
-	@Test
 	
-	@AfterMethod
+	
+	@AfterMethod(alwaysRun=true)
 	public void closebrowser()
 	{
 
