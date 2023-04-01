@@ -1,5 +1,6 @@
 package test;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
@@ -9,7 +10,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -36,6 +40,9 @@ public class javascript_executor {
 		jsexec.executeScript("myFunction()");	
 		Thread.sleep(3000);
 		driver.switchTo().alert().accept();
+		
+		
+		
 		
 		//highlight button
 		WebElement button = driver.findElement(By.xpath("/html/body/button"));
